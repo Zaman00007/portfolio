@@ -23,7 +23,24 @@ function Home() {
         return [screenScale, screenPosition, rotation];
       };
 
-        const [screenScale, screenPosition, rotation] = adjustIslandForScreenSize();
+        const [isLandScale, isLandPosition, isLandRotation] = adjustIslandForScreenSize();
+
+        const adjustPlaneForScreenSize = () => {
+          let screenScale, screenPosition;
+          let rotation = [0.1, 4.7, 0];
+      
+          if (window.innerWidth < 768) {
+            screenScale = [1.5, 1.5, 1.5];
+            screenPosition = [0, -3, 0];
+          } else {
+            screenScale = [3, 3, 3];
+            screenPosition = [0, -4, -4];
+          }
+      
+          return [screenScale, screenPosition];
+        };
+        const [isPlaneScale, isPlanePosition] = adjustPlaneForScreenSize();
+
     return (
         <section className='w-full h-screen relative'>
             <Canvas className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab' }`} camera={{near:0.1 , far:1000}}>
@@ -36,13 +53,19 @@ function Home() {
                     <Bird/>
                     <Sky/>
                     <Island
-                        position={screenPosition}
-                        scale={screenScale}
-                        rotation={rotation}
+                        position={isLandPosition}
+                        scale={isLandScale}
+                        rotation={isLandRotation}
                         isRotating={isRotating}
                         setIsRotating={setIsRotating}
                     />
-                    <Plane/>
+                    <Plane
+                        position={isPlanePosition}
+                        scale={isPlaneScale}
+                        isRotating={isRotating}
+                        setIsRotating={setIsRotating}
+                        rotation={[0, 20, 0]}
+                    />
                 </Suspense>
             </Canvas>  
         </section>
