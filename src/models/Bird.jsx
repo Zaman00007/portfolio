@@ -1,5 +1,5 @@
 import React from 'react';
-import birdScene from '../../public/assets/3d/bird.glb';
+import birdScene from '../assets/3d/bird.glb';
 import { useGLTF } from '@react-three/drei';
 
 function Bird() {
