@@ -18,7 +18,7 @@ const renderContent = {
     1:(
         <h1 className='sm:text-x1 sm:leading-snug text-center neo-brutalism-blue py-4 px-8 text-white mx-5'>Hi, I am <span className='font-semibold'>Shahid</span>👋
         <br/>
-          Full Stack 3D Developer!!!
+          A 3D Full Stack Developer. Just have a trip round my Portfolio Website.
         </h1>
     ),
     2: (
