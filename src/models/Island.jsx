@@ -9,7 +9,7 @@ Title: Fox's islands
 import React, { useRef, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
-import islandScene from "../../public/assets/3d/island.glb";
+import islandScene from "../assets/3d/island.glb";
 import {a} from '@react-spring/three'
 // import { is } from "@react-three/fiber/dist/declarations/src/core/utils";
 
