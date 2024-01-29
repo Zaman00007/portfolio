@@ -7,6 +7,7 @@ import Plane from '../models/Plane';
 import Bird from '../models/Bird';
 import HomeInfo from '../components/HomeInfo';
 
+
 function Home() {
     const [isRotating, setIsRotating] = useState(false);
     const [currentStage, setCurrentStage] = useState(1);
@@ -62,11 +63,12 @@ function Home() {
                     />
                     <Island
                         position={isLandPosition}
-                        scale={isLandScale}
+                        // scale={isLandScale}
                         rotation={isLandRotation}
                         isRotating={isRotating}
                         setIsRotating={setIsRotating}
                         setCurrentStage={setCurrentStage}
+                        scale={[0.04, 0.04, 0.04]}
                     />
                     <Plane
                         position={isPlanePosition}

@@ -18,7 +18,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.3",
     "three": "^0.160.1",
-    "three-bmfont-text": "^3.0.1"
+    "three-bmfont-text": "^3.0.1",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
