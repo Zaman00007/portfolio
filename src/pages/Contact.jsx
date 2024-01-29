@@ -30,10 +30,10 @@ function Contact() {
       console.log('error');
     })
 
-    // setTimeout(() => {
-    //   setIsLoading(false);
-    //   setForm({name:"", email:"", message:"", message:""});
-    // }, 2000);
+    setTimeout(() => {
+    
+      setCurrentAnimation("idle");
+    }, 2000);
   }
 
   return (
