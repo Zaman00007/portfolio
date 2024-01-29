@@ -93,7 +93,7 @@ function Contact() {
           {isLoading ? 'Sending...' : 'Send Message'}
         </button>
       </form>
-      <div className='lg:w-1/2 w-full lg:h-auto h-[350px]'>
+      <div className='w-full h-[350px]'>
         {/* <Fox/> */}
         <Canvas 
           camera={{
