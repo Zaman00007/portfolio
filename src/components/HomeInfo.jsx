@@ -39,7 +39,7 @@ const renderContent = {
     ),
     4: (
         <InfoBox text="Feel free to contact me for any tech related issues!!" 
-            link="/contact"
+            link="/contacts"
             btntext="Contact Me"
             
             />
