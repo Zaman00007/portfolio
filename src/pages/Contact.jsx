@@ -11,22 +11,29 @@ function Contact() {
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});
   }
-  const handleFocus = (e) => {};
-  const handleBlur = (e) => {};
+  const [currentAnimation, setCurrentAnimation] = useState("idle");
+  const handleFocus = (e) => {
+    setCurrentAnimation("walk");
+  };
+  const handleBlur = (e) => {
+    setCurrentAnimation("idle");
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    emailjs.send('service_3qg3k7a', 'template_6x3w8xq', formRef.current, 'user_0h4Z3lYc4n8m3eX5dVh4B').then(() => {
+    setCurrentAnimation("hit");
+    emailjs.send('servic', 'templ', formRef.current, 'use').then(() => {
       setIsLoading(false);
       setForm({name:"", email:"", message:"", message:""});
     }).catch(() => {
+      setCurrentAnimation("idle");
       console.log('error');
     })
 
-    setTimeout(() => {
-      setIsLoading(false);
-      setForm({name:"", email:"", message:"", message:""});
-    }, 2000);
+    // setTimeout(() => {
+    //   setIsLoading(false);
+    //   setForm({name:"", email:"", message:"", message:""});
+    // }, 2000);
   }
 
   return (
@@ -96,12 +103,13 @@ function Contact() {
             far: 1000,
           }}
         >
-        <directionalLight intensity={2}/>
-        <ambientLight intensity={2}/>
+        <directionalLight intensity={2} position={[0,0,1]}/>
+        <ambientLight intensity={0.5}/>
         <Suspense fallback={<Loader/>}>
               <Fox
-                position = {[0,-1,0]}
-                rotation ={[12,0,0]}
+                currentAnimation={currentAnimation}
+                position = {[0.5, 0.35,0]}
+                rotation ={[12.6, -0.6, 0]}
                 scale = {[0.5,0.5,0.5]}
               />
             </Suspense>
