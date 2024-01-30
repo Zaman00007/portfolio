@@ -6,6 +6,7 @@ import scene from "../assets/3d/fox.glb";
 
 function Fox({ currentAnimation, ...props }) {
   const group = useRef();
+  console.log("Fox Use Ref",group);
   const { nodes, materials, animations } = useGLTF(scene);
   const { actions } = useAnimations(animations, group);
   

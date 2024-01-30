@@ -25,7 +25,7 @@ const WoodenBoard = ({ ...props }) => {
   useFrame(() => {
     
     // mesh.current.rotation.x += 0.005;
-    mesh.current.rotation.y += 0.005 * Math.PI * 2;
+    mesh.current.rotation.y += 0.0005 * Math.PI * 2;
   });
 
   return (
