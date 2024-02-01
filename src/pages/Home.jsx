@@ -68,7 +68,7 @@ function Home() {
                         isRotating={isRotating}
                         setIsRotating={setIsRotating}
                         setCurrentStage={setCurrentStage}
-                        scale={[0.04, 0.04, 0.04]}
+                        scale={[0.028, 0.028, 0.028]}
                     />
                     <Plane
                         position={isPlanePosition}
