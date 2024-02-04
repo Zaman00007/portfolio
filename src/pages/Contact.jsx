@@ -3,11 +3,14 @@ import emailjs from '@emailjs/browser';
 import Fox from '../models/Fox';
 import { Canvas } from '@react-three/fiber';
 import Loader from '../components/Loader';
+import useAlert from "../hooks/useAlert";
+
 
 function Contact() {
   const formRef = useRef();
   const [form, setForm] = useState({name:"", email:"", message:"", message:""});
   const [isLoading, setIsLoading] = useState(false);
+  const { alert, showAlert, hideAlert } = useAlert();
   const handleChange = (e) => {
     setForm({...form, [e.target.name]: e.target.value});
   }
@@ -18,23 +21,57 @@ function Contact() {
   const handleBlur = (e) => {
     setCurrentAnimation("idle");
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
     setCurrentAnimation("hit");
-    emailjs.send('servic', 'templ', formRef.current, 'use').then(() => {
-      setIsLoading(false);
-      setForm({name:"", email:"", message:"", message:""});
-    }).catch(() => {
-      setCurrentAnimation("idle");
-      console.log('error');
-    })
 
-    setTimeout(() => {
-    
-      setCurrentAnimation("idle");
-    }, 2000);
-  }
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: "Shahid",
+          from_email: form.email,
+          to_email: "shahidzaman75724@gmail.com",
+          message: form.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setIsLoading(false);
+          showAlert({
+            show: true,
+            text: "Thank you for your message 😃",
+            type: "success",
+          });
+
+          setTimeout(() => {
+            hideAlert(false);
+            setCurrentAnimation("idle");
+            setForm({
+              name: "",
+              email: "",
+              message: "",
+            });
+          }, [3000]);
+        },
+        (error) => {
+          setIsLoading(false);
+          console.error(error);
+          setCurrentAnimation("idle");
+
+          showAlert({
+            show: true,
+            text: "I didn't receive your message 😢",
+            type: "danger",
+          });
+        }
+      );
+  };
 
   return (
     <section className='relative flex lg:flx-row flex-col max-container'>
@@ -94,7 +131,7 @@ function Contact() {
         </button>
       </form>
       <div className='w-full h-[350px]'>
-        {/* <Fox/> */}
+        
         <Canvas 
           camera={{
             position:[0,0,5],
