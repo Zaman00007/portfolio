@@ -15,7 +15,7 @@ const Zaman = ({ ...props }) => {
 
   return (
     <group {...props} ref={name}>
-      <mesh
+      {/* <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube.geometry}
@@ -23,7 +23,7 @@ const Zaman = ({ ...props }) => {
         position={[-0.497, 1.018, -0.096]}
         rotation={[0, 0, -Math.PI / 2]}
         scale={[1.5, 0.5, 2.5]}
-      />
+      /> */}
       <mesh
         castShadow
         receiveShadow

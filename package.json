@@ -17,6 +17,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.21.3",
+    "react-vertical-timeline-component": "^3.6.0",
     "three": "^0.160.1",
     "three-bmfont-text": "^3.0.1",
     "use-sound": "^4.0.1"

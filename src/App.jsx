@@ -10,7 +10,7 @@ import Projects from "./pages/Projects";
 
 function App() {
   return (
-    <main className='bg-slate-300/20'>
+    <main className='bg-slate-300/20 h-full'>
       <Router>
          <Navbar />
         <Routes>
