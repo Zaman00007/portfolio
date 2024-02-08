@@ -37,7 +37,7 @@ function About() {
             ))}
         </div>
       </div>
-      <div>
+      {/* <div>
         <h3 className='subhead-text'>Education</h3>
         <p className='mt-5 text-slate-500'>
           I have experience working with a variety of technologies and tools, including JavaScript, React, Node.js, Express, MongoDB, PostgreSQL, and more. I've also worked on a number of projects, including web applications, mobile apps, and games. I'm always looking to learn new things and expand my skill set, and I'm excited to take on new challenges.
@@ -73,14 +73,14 @@ function About() {
                   <li key={index} className='text-black-500/50 pl-1 font-normal'>{point}</li>
                 ))}
               </ul>
-              {/* <p>{exp.points}</p> */}
+              
             </VerticalTimelineElement>
           ))}
 
          </VerticalTimeline> 
       </div>
       <hr className='border-slate-200 mt-10'/>
-      <CTA/>
+      <CTA/> */}
     </section>
   )
 }
